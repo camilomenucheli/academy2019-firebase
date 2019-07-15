@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   data: () => ({
     email: '',
@@ -41,7 +43,13 @@ export default {
 
   methods: {
     createAccount () {
-
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(() => {
+          alert('Conta criada com sucesso!')
+        }) 
+        .catch(error => {
+          alert('Erro ao criar conta! \n\n' + error)
+        })
     },
 
     returnToLogin () {
