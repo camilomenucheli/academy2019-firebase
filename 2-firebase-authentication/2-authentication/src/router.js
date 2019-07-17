@@ -25,6 +25,27 @@ const router = new Router({
       path: '/create_account',
       name: 'createaccount',
       component: () => import(/* webpackChunkName: "login" */ './views/CreateAccount.vue')
+    },
+    {
+      path: '/feed',
+      name: 'feed',
+      component: () => import(/* webpackChunkName: "login" */ './views/Feed.vue')
+    },
+    // {
+    //   path: '/post/novo',
+    //   name: 'new-post',
+    //   // route level code-splitting
+    //   // this generates a separate chunk (login.[hash].js) for this route
+    //   // which is lazy-loaded when the route is visited.
+    //   component: () => import(/* webpackChunkName: "new-post" */ './views/NewPost.vue')
+    // },
+    {
+      path: '/post/:id',
+      name: 'post',
+      // route level code-splitting
+      // this generates a separate chunk (login.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "post" */ './views/Post.vue')
     }
   ]
 })
